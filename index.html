@@ -702,7 +702,7 @@
         /* Equipment entrance animation */
         .equipment-animate {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(2px);
             transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
@@ -1136,10 +1136,7 @@
         (function() {
             'use strict';
 
-            // 🧪 TESTING MODE - Uncomment the line below to always show loader for testing
-            // localStorage.removeItem('podcastStudioVisited');
-            
-            // Check if user has visited before
+            // 🧪 TESTING MODE - Uncomment the line below to always show loader for 
             const hasVisitedBefore = localStorage.getItem('podcastStudioVisited');
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const loader = document.getElementById('cinematicLoader');
@@ -1173,7 +1170,7 @@
             
             function animateIcon(iconData, callback) {
                 if (!iconData.element) {
-                    console.log('⚠️ Icon element not found for:', iconData);
+                    // console.log('⚠️ Icon element not found for:', iconData);
                     if (callback) callback();
                     return;
                 }
@@ -1181,7 +1178,7 @@
                 const { element, duration } = iconData;
                 const iconSpan = element.querySelector('span');
                 
-                console.log('🎯 Animating icon:', element.dataset.icon, 'Element:', element, 'Span:', iconSpan);
+                // console.log('🎯 Animating icon:', element.dataset.icon, 'Element:', element, 'Span:', iconSpan);
                 
                 // Make sure the element is visible
                 element.style.display = 'flex';
@@ -1198,11 +1195,11 @@
                     iconSpan.style.animation = `iconFloat ${duration * 0.8}ms ease-in-out infinite`;
                 }
                 
-                console.log('✨ Icon should be visible now:', element.dataset.icon);
+                // console.log('✨ Icon should be visible now:', element.dataset.icon);
                 
                 // Hide icon after duration and trigger callback
                 setTimeout(() => {
-                    console.log('⏰ Hiding icon:', element.dataset.icon);
+                    // console.log('⏰ Hiding icon:', element.dataset.icon);
                     element.style.opacity = '0';
                     element.style.transform = 'scale(0)';
                     if (iconSpan) {
@@ -1223,7 +1220,7 @@
                     });
                 } else {
                     // All icons done - start door opening effect
-                    console.log('🚪 Starting door opening effect');
+                    // console.log('🚪 Starting door opening effect');
                     setTimeout(openDoors, prefersReducedMotion ? 50 : 50);
                 }
             }
@@ -1244,20 +1241,18 @@
                     if (loader.parentNode) {
                         loader.parentNode.removeChild(loader);
                     }
-                    console.log('✅ Loader animation complete');
+                    // console.log('✅ Loader animation complete');
                 }, duration);
             }
             
             // Start the animation sequence after page loads
-            console.log('🎬 Starting icon sequence in 100ms');
+            // console.log('🎬 Starting icon sequence in 100ms');
             setTimeout(() => {
                 runIconSequence();
             }, 200);
-            
-
-            
-        })();
+         })();
     </script>
+
     <!-- Premium Animated Header -->
     <header
         class="fixed top-0 left-0 right-0 z-50 ultra-black/98 backdrop-blur-lg border-b border-gray-700/50 shadow-2xl">
@@ -1268,7 +1263,7 @@
                 <div class="flex items-center space-x-4 group logo-container cursor-pointer">
                     <!-- Animated Logo Container -->
                     <div class="logo-pulse rounded-2xl logo-backdrop desktop-hover-scale">
-                        <img src="./Image/logo.png" alt="Podcast Studio Logo" class="w-24 object-contain shadow-lg"
+                        <img src="./Image/logo.avif" alt="Podcast Studio Logo" class="w-24 object-contain shadow-lg"
                             style="filter: brightness(1.1) contrast(1.1);">
                     </div>
 
@@ -1496,7 +1491,7 @@
                             <div class="relative">
                                 <!-- Main Hero Image -->
                                 <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/10">
-                                    <img src="./Image/Hero.png" 
+                                    <img src="./Image/Hero.avif" 
                                          alt="Professional Podcast Studio - Fully Equipped Recording Environment" 
                                          class="w-full h-auto aspect-video object-cover hover:scale-105 transition-transform duration-700">
                                     
@@ -1541,10 +1536,10 @@
 
 
         <!-- Banner section  -->
-         <img src="./Image/Banner.png" class="w-full h-auto shadow-2xl" alt="">
+         <img src="./Image/Banner.avif" class="w-full h-auto shadow-2xl" alt="">
 
         <!-- All-Inclusive Podcast Studio Setup Section -->
-        <section class="studio-setup-section relative py-16 xs:py-8 overflow-hidden bg-gradient-to-b from-transparent via-gray-900/10 to-transparent">
+        <section class="studio-setup-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-gray-900/10 to-transparent">
             <!-- Background decorative elements - Low opacity studio themed -->
             <div class="absolute inset-0 pointer-events-none opacity-3">
                 <!-- Sound wave lines -->
@@ -1586,7 +1581,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-amber-500/20 to-yellow-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg hover:shadow-amber-500/30 hover:shadow-2xl border border-amber-500/20">
-                                    <img src="./Image/equipment1.png" alt="Professional Podcast Microphones" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/equipment1.avif" alt="Professional Podcast Microphones" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1606,7 +1601,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-yellow-500/20 to-orange-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-lg hover:shadow-yellow-500/30 hover:shadow-2xl border border-yellow-500/20">
-                                    <img src="./Image/equipment2.png" alt="4K Cameras & Multi-Angle Setup" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/equipment2.avif" alt="4K Cameras & Multi-Angle Setup" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1626,7 +1621,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-yellow-500/20 to-orange-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg hover:shadow-yellow-500/30 hover:shadow-2xl border border-orange-500/20">
-                                    <img src="./Image/equipment3.png" alt="Studio Lighting System" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/equipment3.avif" alt="Studio Lighting System" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1646,7 +1641,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-green-500/20 to-teal-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500 shadow-lg hover:shadow-green-500/30 hover:shadow-2xl border border-green-500/20">
-                                    <img src="./Image/Studio4.jpeg" alt="Soundproof Studio & Acoustic Panels" class="w-28 h-28 object-cover rounded-2xl filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/Studio4.avif" alt="Soundproof Studio & Acoustic Panels" class="w-28 h-28 object-cover rounded-2xl filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1666,7 +1661,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-pink-500/20 to-red-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg hover:shadow-pink-500/30 hover:shadow-2xl border border-pink-500/20">
-                                    <img src="./Image/equipment4.png" alt="Podcast Props & Background Setups" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/equipment4.avif" alt="Podcast Props & Background Setups" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1686,7 +1681,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:-rotate-9 transition-all duration-500 shadow-lg hover:shadow-cyan-500/30 hover:shadow-2xl border border-cyan-500/20">
-                                    <img src="./Image/equipment5.png" alt="High-Quality Headphones" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/equipment5.avif" alt="High-Quality Headphones" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1706,7 +1701,7 @@
                             <!-- Icon Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 bg-gradient-to-br from-blue-500/20 to-indigo-600/20 rounded-3xl flex items-center justify-center text-4xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg hover:shadow-blue-500/30 hover:shadow-2xl border border-blue-500/20">
-                                    <img src="./Image/equipment6.png" alt="Live Monitoring Screen" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/equipment6.avif" alt="Live Monitoring Screen" class="w-28 h-28 object-contain filter drop-shadow-lg group-hover:filter group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1737,7 +1732,7 @@
         </section>
 
         <!-- Who Is This Podcast Studio For Section -->
-        <section class="audience-section relative py-16 xs:py-8 overflow-hidden bg-gradient-to-b from-transparent via-amber-900/10 to-transparent">
+        <section class="audience-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-amber-900/10 to-transparent">
             <!-- Background decorative elements - Low opacity podcast/studio themed -->
             <div class="absolute inset-0 pointer-events-none opacity-3">
                 <!-- Sound wave lines -->
@@ -1776,32 +1771,32 @@
                         <div class="studio-gallery-swiper swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="./Image/theamLane1.jpg" 
+                                    <img src="./Image/theamLane1.avif" 
                                          alt="Professional Podcast Studio Setup" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-indigo-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/theamLane2.jpg" 
+                                    <img src="./Image/theamLane2.avif" 
                                          alt="Recording Equipment and Setup" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-purple-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/theamLane3.jpg" 
+                                    <img src="./Image/theamLane3.avif" 
                                          alt="Professional Audio Recording Environment" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-pink-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/theamLane4.jpg" 
+                                    <img src="./Image/theamLane4.avif" 
                                          alt="Professional Audio Recording Environment" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-pink-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/theamLane5.jpg" 
+                                    <img src="./Image/theamLane5.avif" 
                                          alt="Professional Audio Recording Environment" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-pink-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/theamLane6.jpg" 
+                                    <img src="./Image/theamLane6.avif" 
                                          alt="Professional Audio Recording Environment" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-pink-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
@@ -1826,7 +1821,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-amber-500/20">
-                                    <img src="./Image/H1.png" alt="Podcasters" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H1.avif" alt="Podcasters" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1846,7 +1841,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-purple-500/20">
-                                    <img src="./Image/H2.png" alt="YouTubers & video creators" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H2.avif" alt="YouTubers & video creators" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1866,7 +1861,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-pink-500/20">
-                                    <img src="./Image/H3.jpg" alt="Interview Shows & Talk Shows" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H3.avif" alt="Interview Shows & Talk Shows" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1886,7 +1881,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-green-500/20">
-                                    <img src="./Image/H4.png" alt="Coaches, Educators & Trainers" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H4.avif" alt="Coaches, Educators & Trainers" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1906,7 +1901,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-yellow-500/20">
-                                    <img src="./Image/H5.png" alt="Startup Founders & Entrepreneurs" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H5.avif" alt="Startup Founders & Entrepreneurs" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1926,7 +1921,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-cyan-500/20">
-                                    <img src="./Image/H6.png" alt="Influencers & Content Creators" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H6.avif" alt="Influencers & Content Creators" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1946,7 +1941,7 @@
                             <!-- Image Container -->
                             <div class="flex justify-center mb-4">
                                 <div class="w-36 h-36 rounded-3xl overflow-hidden flex items-center justify-center shadow-lg border border-blue-500/20">
-                                    <img src="./Image/H7.png" alt="Corporate Podcast Recordings" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
+                                    <img src="./Image/H7.avif" alt="Corporate Podcast Recordings" class="w-32 h-32 object-cover rounded-2xl filter drop-shadow-lg group-hover:scale-105 group-hover:brightness-110 transition-all duration-300">
                                 </div>
                             </div>
                             
@@ -1977,7 +1972,7 @@
         </section>
 
         <!-- Podcast Studio Pricing & Packages Section -->
-        <section class="pricing-section relative py-16 xs:py-8 overflow-hidden bg-gradient-to-b from-transparent via-yellow-900/10 to-transparent">
+        <section class="pricing-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-yellow-900/10 to-transparent">
             <!-- Background decorative elements - Low opacity podcast/studio themed -->
             <div class="absolute inset-0 pointer-events-none opacity-5">
                 <!-- Microphone outlines -->
@@ -2057,7 +2052,7 @@
                             </div>
                             
                             <!-- CTA Button -->
-                            <button class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 px-6 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/30 group-hover:shadow-xl">
+                            <button class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 px-6 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-amber-500/30 group-hover:shadow-xl" onclick="scrollToBooking()">
                                 Book This Plan
                             </button>
                         </article>
@@ -2116,7 +2111,7 @@
                             </div>
                             
                             <!-- CTA Button -->
-                            <button class="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 px-6 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30 group-hover:shadow-xl">
+                            <button class="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 px-6 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30 group-hover:shadow-xl" onclick="scrollToBooking('standard')">
                                 Book This Plan
                             </button>
                         </article>
@@ -2178,7 +2173,7 @@
                             </div>
                             
                             <!-- CTA Button -->
-                            <button class="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 px-6 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30 group-hover:shadow-xl">
+                            <button class="w-full bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 px-6 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/30 group-hover:shadow-xl" onclick="scrollToBooking()">
                                 Book This Plan
                             </button>
                         </article>
@@ -2244,7 +2239,7 @@
         </section>
 
         <!-- How Podcast Studio Booking Works Section -->
-        <section class="how-it-works-section relative py-16 xs:py-8 overflow-hidden bg-gradient-to-b from-transparent via-yellow-900/10 to-transparent">
+        <section class="how-it-works-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-yellow-900/10 to-transparent">
             <!-- Background decorative elements -->
             <div class="absolute inset-0 pointer-events-none opacity-5">
                 <div class="absolute top-20 left-20 text-5xl text-amber-400 transform rotate-12">🎙️</div>
@@ -2413,7 +2408,7 @@
                             </span>
                         </div>
                         <div>
-                            <button class="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 hover:to-yellow-600 px-8 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 shadow-xl hover:scale-105 hover:shadow-yellow-500/30">
+                            <button class="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 hover:to-yellow-600 px-8 py-3 rounded-full text-white font-bold text-lg transition-all duration-300 shadow-xl hover:scale-105 hover:shadow-yellow-500/30" onclick="scrollToBooking()">
                                 Start Booking Now
                             </button>
                         </div>
@@ -2424,7 +2419,7 @@
         </section>
 
         <!-- Why Choose Us Section -->
-        <section class="why-choose-section relative py-16 xs:py-8 overflow-hidden">
+        <section class="why-choose-section relative px-4 py-8 lg:py-16 overflow-hidden">
             <!-- Background decorative elements -->
             <div class="absolute inset-0 pointer-events-none opacity-3">
                 <div class="absolute top-20 left-16 text-6xl text-indigo-400/30 transform rotate-12">🎙️</div>
@@ -2451,17 +2446,17 @@
                         <div class="studio-gallery-swiper swiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="./Image/Studio1.jpeg" 
+                                    <img src="./Image/Studio1.avif" 
                                          alt="Professional Podcast Studio Setup" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-indigo-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/Studio3.jpeg" 
+                                    <img src="./Image/Studio3.avif" 
                                          alt="Recording Equipment and Setup" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-purple-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="./Image/Studio2.jpeg" 
+                                    <img src="./Image/Studio2.avif" 
                                          alt="Professional Audio Recording Environment" 
                                          class="w-full max-w-4xl mx-auto h-60 md:h-72 lg:h-96 xl:h-[500px] rounded-3xl shadow-2xl border border-white/10 object-cover hover:scale-105 hover:shadow-pink-500/20 transition-all duration-500 cursor-pointer">
                                 </div>
@@ -2584,7 +2579,7 @@
                                 We help creators focus on content — not technology.
                             </span>
                         </div>
-                        <div class="mt-8">
+                        <div class="mt-8" onclick="scrollToBooking()">
                             <button class="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 px-10 py-4 rounded-full text-white font-bold text-lg transition-all duration-300 shadow-2xl hover:scale-105 hover:shadow-yellow-500/30">
                                 Get Started Today
                             </button>
@@ -2596,7 +2591,7 @@
         </section>
 
         <!-- Professional Equipment & Technical Specifications Section -->
-        <section class="equipment-section relative py-16 xs:py-8 overflow-hidden bg-gradient-to-b from-transparent via-gray-900/30 to-transparent">
+        <section class="equipment-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-gray-900/30 to-transparent">
             <!-- Floating background elements -->
             <div class="absolute top-20 left-10 text-8xl opacity-5 text-indigo-400 transform rotate-12 pointer-events-none">🎙️</div>
             <div class="absolute top-40 right-20 text-6xl opacity-5 text-purple-400 transform -rotate-15 pointer-events-none">📹</div>
@@ -2620,7 +2615,7 @@
                     </div>
 
                     <div class="flex justify-center mb-12">
-                        <img src="./Image/Lighting.jpeg" alt="Lighting Setup" class="w-full max-w-2xl md:max-w-3xl lg:max-w-4xl h-auto rounded-3xl shadow-2xl border border-white/10 object-cover">
+                        <img src="./Image/Lighting.avif" alt="Lighting Setup" class="w-full max-w-2xl md:max-w-3xl lg:max-w-4xl h-auto rounded-3xl shadow-2xl border border-white/10 object-cover">
                     </div>
 
                     <!-- Equipment Grid -->
@@ -2669,8 +2664,7 @@
                                 <div class="flex items-center justify-start space-x-2">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></span>
                                     <span>Multiple Angles</span>
-                                </div>
-                                <div class="flex items-center justify-start space-x-2">
+                                </div>`
                                     <span class="w-2 h-2 bg-purple-400 rounded-full flex-shrink-0"></span>
                                     <span>Auto-Focus System</span>
                                 </div>
@@ -2869,7 +2863,7 @@
         </section>
 
         <!-- Premium Client Reviews / Testimonials Section -->
-        <section class="testimonials-section relative py-16 xs:py-8 overflow-hidden">
+        <section class="testimonials-section relative px-4 py-8 lg:py-16 overflow-hidden">
             <!-- Podcast-themed background elements -->
             <div class="absolute inset-0 pointer-events-none opacity-5">
                 <div class="absolute top-10 left-10 text-6xl text-indigo-400 transform rotate-12">🎙️</div>
@@ -2918,7 +2912,7 @@
                                     <div class="quote-icon">"</div>
                                     <!-- Client Info -->
                                     <div class="flex items-center mb-6 relative z-10">
-                                        <img src="./Image/Client1.png" alt="Priya Sharma" class="client-image object-cover mr-4">
+                                        <img src="./Image/Client1.avif" alt="Priya Sharma" class="client-image object-cover mr-4">
                                         <div>
                                             <h3 class="text-white font-semibold text-lg">Priya Sharma</h3>
                                             <p class="text-gray-400 text-sm">Wellness Podcast Host</p>
@@ -2957,7 +2951,7 @@
                                 <div class="testimonial-card relative p-8 rounded-2xl h-full">
                                     <div class="quote-icon">"</div>
                                     <div class="flex items-center mb-6 relative z-10">
-                                        <img src="./Image/Client2.png" alt="Arjun Patel" class="client-image object-cover mr-4">
+                                        <img src="./Image/Client2.avif" alt="Arjun Patel" class="client-image object-cover mr-4">
                                         <div>
                                             <h3 class="text-white font-semibold text-lg">Arjun Patel</h3>
                                             <p class="text-gray-400 text-sm">Business Coach</p>
@@ -2994,7 +2988,7 @@
                                 <div class="testimonial-card relative p-8 rounded-2xl h-full">
                                     <div class="quote-icon">"</div>
                                     <div class="flex items-center mb-6 relative z-10">
-                                        <img src="./Image/Client3.png" alt="Kavya Singh" class="client-image object-cover mr-4">
+                                        <img src="./Image/Client3.avif" alt="Kavya Singh" class="client-image object-cover mr-4">
                                         <div>
                                             <h3 class="text-white font-semibold text-lg">Kavya Singh</h3>
                                             <p class="text-gray-400 text-sm">YouTuber & Creator</p>
@@ -3031,7 +3025,7 @@
                                 <div class="testimonial-card relative p-8 rounded-2xl h-full">
                                     <div class="quote-icon">"</div>
                                     <div class="flex items-center mb-6 relative z-10">
-                                        <img src="./Image/Client4.png" alt="Rajesh Kumar" class="client-image object-cover mr-4">
+                                        <img src="./Image/Client4.avif" alt="Rajesh Kumar" class="client-image object-cover mr-4">
                                         <div>
                                             <h3 class="text-white font-semibold text-lg">Rajesh Kumar</h3>
                                             <p class="text-gray-400 text-sm">Tech Startup Founder</p>
@@ -3068,7 +3062,7 @@
                                 <div class="testimonial-card relative p-8 rounded-2xl h-full">
                                     <div class="quote-icon">"</div>
                                     <div class="flex items-center mb-6 relative z-10">
-                                        <img src="./Image/Client5.png" alt="Ananya Gupta" class="client-image object-cover mr-4">
+                                        <img src="./Image/Client5.avif" alt="Ananya Gupta" class="client-image object-cover mr-4">
                                         <div>
                                             <h3 class="text-white font-semibold text-lg">Ananya Gupta</h3>
                                             <p class="text-gray-400 text-sm">Marketing Director</p>
@@ -3105,7 +3099,7 @@
                                 <div class="testimonial-card relative p-8 rounded-2xl h-full">
                                     <div class="quote-icon">"</div>
                                     <div class="flex items-center mb-6 relative z-10">
-                                        <img src="./Image/Client6.png" alt="Vikram Mehta" class="client-image object-cover mr-4">
+                                        <img src="./Image/Client6.avif" alt="Vikram Mehta" class="client-image object-cover mr-4">
                                         <div>
                                             <h3 class="text-white font-semibold text-lg">Vikram Mehta</h3>
                                             <p class="text-gray-400 text-sm">Fitness Coach</p>
@@ -3161,7 +3155,7 @@
         </section>
 
         <!-- faq section  -->
-        <section class="faq-section relative py-16 xs:py-8 overflow-hidden">
+        <section class="faq-section relative px-4 py-8 lg:py-16 overflow-hidden">
             <!-- Podcast-themed background icons -->
             <div class="podcast-icon-bg podcast-icon-mic">🎤</div>
             <div class="podcast-icon-bg podcast-icon-wave">📶</div>
@@ -3373,7 +3367,7 @@
         <body>
             <!-- Premium Booking Form Section -->
             <section
-                class="booking-form-section relative min-h-screen flex items-center justify-center py-16 xs:py-8 overflow-hidden">
+                class="booking-form-section relative min-h-screen flex items-center justify-center px-4 py-8 lg:py-16 overflow-hidden">
                 <!-- Animated background glow effects -->
                 <div class="booking-glow-1"></div>
                 <div class="booking-glow-2"></div>
@@ -3474,7 +3468,7 @@
                     <div class="flex items-center space-x-3 mb-4">
                         <div
                             class="rounded-full p-2 bg-gradient-to-br from-amber-500/20 to-orange-600/20 backdrop-blur">
-                            <img src="./Image/logo.png" alt="Podcast Studio Logo" class="w-10 h-10 object-contain"
+                            <img src="./Image/logo.avif" alt="Podcast Studio Logo" class="w-10 h-10 object-contain"
                                 style="filter: brightness(1.1) contrast(1.1);">
                         </div>
                         <div>
@@ -3896,7 +3890,7 @@
                             equipmentItems.forEach((item, index) => {
                                 setTimeout(() => {
                                     item.classList.add('animate');
-                                }, index * 100);
+                                }, index * 10);
                             });
                         }, 200);
                     }
