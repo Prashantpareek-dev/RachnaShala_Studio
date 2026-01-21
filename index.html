@@ -3226,7 +3226,8 @@
         </section>
 
         <!-- How Podcast Studio Booking Works Section -->
-        <section id="how-it-works" class="how-it-works-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-yellow-900/10 to-transparent">
+        <section id="how-it-works"
+            class="how-it-works-section relative px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-transparent via-yellow-900/10 to-transparent">
             <!-- Background decorative elements -->
             <div class="absolute inset-0 pointer-events-none opacity-5">
                 <div class="absolute top-20 left-20 text-5xl text-amber-400 transform rotate-12">🎙️</div>
@@ -4736,29 +4737,40 @@
                     const formData = new FormData(form);
                     let redirected = false;
 
-                    const timeout = setTimeout(() => {
-                        if (!redirected) {
-                            redirected = true;
-                            window.location.href = './Thankyou.html';
-                        }
-                    }, 2000);
+                    // const timeout = setTimeout(() => {
+                    //     if (!redirected) {
+                    //         redirected = true;
+                    //         window.location.href = './Thankyou.html';
+                    //     }
+                    // }, 5000);
 
-                    fetch('https://script.google.com/macros/s/AKfycbxnMuCrcwfsopbyXWRdPKj_4qYlJEaAl1dUNJDOock5uw9XVCUdt8nFDOcmDjmiWIS7/exec', {
+                    const payload = {
+                        Name: name,
+                        Phone: phone,
+                        Date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+                    };
+ console.log(payload)
+                    // SheetDB expects an object with `data` array when adding rows
+                    fetch('https://sheetdb.io/api/v1/fefkx0btfdv6t', {
                         method: 'POST',
-                        body: formData
-                    }).then(response => response.text())
-                        .then(data => {
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ data: [payload] })
+                    })
+                        .then(res => res.json())
+                        .then(resp => {
+                            clearTimeout(timeout);
                             if (!redirected) {
-                                clearTimeout(timeout);
                                 redirected = true;
-                                window.location.href = './Thankyou.html';
+                                // window.location.href = './Thankyou.html';
                             }
-                        }).catch(error => {
-                            console.error("Error:", error);
+                        })
+                        .catch(err => {
+                            console.error('SheetDB error:', err);
+                            // preserve UX: redirect to thank you page on error as fallback
                             if (!redirected) {
                                 clearTimeout(timeout);
                                 redirected = true;
-                                window.location.href = './Thankyou.html';
+                                // window.location.href = './Thankyou.html';
                             }
                         });
 
@@ -5132,7 +5144,7 @@
             });
         });
     </script>
-     <script>
+    <script>
         // Initialize Swiper for Image Slider
         // Configuration: autoplay, loop, smooth transitions, pagination
         const openMicSwiper = new Swiper('.openmic-swiper', {
