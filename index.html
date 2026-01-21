@@ -4698,37 +4698,48 @@
             </style>
             <script>
                 function submitForm(event) {
-                    event.preventDefault();
+                    // Support being called both as an event handler (with event) and inline (no event)
+                    if (event && typeof event.preventDefault === 'function') {
+                        event.preventDefault();
+                    }
+
+                    const form = (event && event.target) ? event.target : document.getElementById('bookingForm');
+                    if (!form) {
+                        console.warn('Booking form not found');
+                        return false;
+                    }
+
                     const submitBtn = document.getElementById('submitBtn');
                     const loading = document.getElementById('loading');
 
-                    // Get form data
-                    const name = document.getElementById('name').value;
-                    const phone = document.getElementById('phone').value;
+                    // Get form data safely
+                    const nameEl = form.querySelector('#name');
+                    const phoneEl = form.querySelector('#phone');
+                    const name = nameEl ? nameEl.value.trim() : '';
+                    const phone = phoneEl ? phoneEl.value.trim() : '';
 
                     const phoneRegex = /^[6-9]\d{9}$/;
                     if (!phoneRegex.test(phone)) {
                         alert("❌ कृपया सही 10 अंकों का मोबाइल नंबर डालें (6–9 से शुरू)");
-                        document.getElementById("phone").focus();
-                        return false; // ❌ form submit stop
+                        if (phoneEl) phoneEl.focus();
+                        return false; // stop submission
                     }
 
-                    // Validate form data
-                    if (!name || !phone || phone.length < 10 || phone.length > 15) {
+                    if (!name || !phone) {
                         alert('कृपया सभी फील्ड सही ढंग से भरें!');
                         return false;
                     }
 
-                    submitBtn.style.display = 'none';
-                    loading.style.display = 'block';
+                    if (submitBtn) submitBtn.style.display = 'none';
+                    if (loading) loading.style.display = 'block';
 
-                    const formData = new FormData(event.target);
+                    const formData = new FormData(form);
                     let redirected = false;
 
                     const timeout = setTimeout(() => {
                         if (!redirected) {
                             redirected = true;
-                            window.location.href = './ThankYou.html';
+                            window.location.href = './Thankyou.html';
                         }
                     }, 2000);
 
@@ -4740,14 +4751,14 @@
                             if (!redirected) {
                                 clearTimeout(timeout);
                                 redirected = true;
-                                window.location.href = './ThankYou.html';
+                                window.location.href = './Thankyou.html';
                             }
                         }).catch(error => {
                             console.error("Error:", error);
                             if (!redirected) {
                                 clearTimeout(timeout);
                                 redirected = true;
-                                window.location.href = 'https://earcarepluspro.shop/thankyou_page';
+                                window.location.href = './Thankyou.html';
                             }
                         });
 
@@ -4819,6 +4830,11 @@
                                         id="submitBtn">
                                         <span class="relative z-10">Book Studio Now</span>
                                     </button>
+                                </div>
+
+                                <!-- Loading indicator (hidden until submission) -->
+                                <div id="loading" style="display:none;" class="text-center mt-4 text-sm text-gray-300">
+                                    Submitting<span id="dotAnim">...</span>
                                 </div>
 
                                 <!-- Trust Indicators -->

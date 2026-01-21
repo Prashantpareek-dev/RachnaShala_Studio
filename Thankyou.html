@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Podcast Studio Rental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom color palette */
+        :root {
+            --color-black: #0B0B0B;
+            --color-yellow: #FFD700;
+            --color-gold: #FFA500;
+        }
+
+        /* Background with podcast elements */
+        body {
+            background: linear-gradient(135deg, #000000 0%, #0B0B0B 50%, #1a1a1a 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative background elements */
+        .bg-decoration {
+            position: fixed;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Animated gradient overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 165, 0, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Staggered animations */
+        .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .delay-400 { animation-delay: 0.4s; opacity: 0; }
+        .delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+        /* Pulsing glow on checkmark */
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        /* Gold gradient text */
+        .gold-gradient {
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FFE55C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(255, 215, 0, 0.1);
+        }
+
+        /* Logo glow effect */
+        .logo-glow {
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+        }
+
+        /* Step card hover effect */
+        .step-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Divider line */
+        .gold-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+        }
+
+        /* Icon backgrounds */
+        .icon-bg {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.05));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Gradient Overlay -->
+    <div class="gradient-overlay"></div>
+
+    <!-- Decorative Background Elements -->
+    <div class="bg-decoration" style="top: 10%; left: 5%; font-size: 200px;">🎤</div>
+    <div class="bg-decoration" style="top: 60%; right: 8%; font-size: 180px;">🎧</div>
+    <div class="bg-decoration" style="bottom: 15%; left: 10%; font-size: 150px;">📻</div>
+    <div class="bg-decoration" style="top: 30%; right: 20%; font-size: 120px;">🎙️</div>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12 relative z-10">
+        <div class="max-w-4xl w-full">
+
+            <!-- Logo -->
+            <div class="text-center mb-8 fade-in-up">
+                <img src="./Image/logo.avif" 
+                     alt="Podcast Studio Rental Logo" 
+                     class="h-16 md:h-20 mx-auto logo-glow">
+            </div>
+
+            <!-- Main Card -->
+            <div class="glass-card rounded-3xl p-8 md:p-12 fade-in-up delay-100">
+                
+                <!-- Success Icon -->
+                <div class="flex justify-center mb-6">
+                    <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center pulse-glow">
+                        <svg class="w-12 h-12 md:w-14 md:h-14 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-center mb-6 fade-in-up delay-200">
+                    <span class="gold-gradient">✅ Thank You for Choosing Our Service!</span>
+                </h1>
+
+                <!-- Gold Divider -->
+                <!-- <div class="gold-divider mb-8"></div> -->
+
+                <!-- Main Message -->
+                <div class="text-center mb-10 fade-in-up delay-300">
+                    <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-4">
+                        Thank you for selecting our podcast studio services.
+                    </p>
+                    <p class="text-gray-300 text-lg md:text-xl leading-relaxed mb-4">
+                        We have successfully received your request.
+                    </p>
+                    <p class="text-gray-300 text-lg md:text-xl leading-relaxed">
+                        Our team will contact you as soon as possible to confirm details and assist you with the next steps.
+                    </p>
+                </div>
+
+                <!-- Preparation Tips -->
+                <div class="bg-black/40 rounded-2xl p-6 md:p-8 mb-8 fade-in-up delay-400">
+                    <h2 class="text-2xl md:text-3xl font-bold text-yellow-400 mb-6 text-center">
+                        📋 How to Prepare
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Tip 1 -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full icon-bg flex items-center justify-center">
+                                    <span class="text-xl">🎙️</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm md:text-base">
+                                Prepare your podcast or event details
+                            </p>
+                        </div>
+                        <!-- Tip 2 -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full icon-bg flex items-center justify-center">
+                                    <span class="text-xl">📝</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm md:text-base">
+                                List any special requirements you may have
+                            </p>
+                        </div>
+                        <!-- Tip 3 -->
+                        <div class="flex items-start space-x-3">
+                            <div class="flex-shrink-0">
+                                <div class="w-10 h-10 rounded-full icon-bg flex items-center justify-center">
+                                    <span class="text-xl">💬</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm md:text-base">
+                                Reach out to us if you need immediate assistance
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What Happens Next -->
+                <div class="fade-in-up delay-500">
+                    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">
+                        <span class="gold-gradient">✨ What Happens Next?</span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                        
+                        <!-- Step 1 -->
+                        <div class="step-card bg-gradient-to-br from-black/60 to-gray-900/60 rounded-2xl p-6 text-center">
+                            <div class="text-5xl mb-4">📞</div>
+                            <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                                Our team will call or message you shortly
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step-card bg-gradient-to-br from-black/60 to-gray-900/60 rounded-2xl p-6 text-center">
+                            <div class="text-5xl mb-4">📅</div>
+                            <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                                We'll confirm your booking or inquiry
+                            </p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step-card bg-gradient-to-br from-black/60 to-gray-900/60 rounded-2xl p-6 text-center">
+                            <div class="text-5xl mb-4">🎙️</div>
+                            <p class="text-gray-200 text-base md:text-lg leading-relaxed">
+                                You get ready to record, perform, or host your event
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 mt-auto">
+        <div class="gold-divider mb-6"></div>
+        <div class="text-center pb-6 px-4">
+            <p class="text-gray-500 text-sm md:text-base">
+                © 2026 Podcast Studio Rental. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
